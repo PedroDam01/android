@@ -16,11 +16,13 @@ import androidx.loader.content.Loader;
 import pflorindo.tfg.buysales.data.Usuario;
 import pflorindo.tfg.buysales.data.UsuarioConvert;
 import pflorindo.tfg.buysales.ui.MainActivity;
+import pflorindo.tfg.buysales.ui.RegistroActivity;
 
 public class AsyncHttpLauncher implements LoaderManager.LoaderCallbacks {
 
     public static final String ACTION_LOGIN = "LOGIN";
-    public static final String ACTION_INSERTAR = "REGISTRO";
+    public static final String ACTION_REGISTRO = "REGISTRO";
+
     private static int idTask = 0;
 
     private LoaderManager loaderManager;
@@ -60,11 +62,15 @@ public class AsyncHttpLauncher implements LoaderManager.LoaderCallbacks {
             case ACTION_LOGIN:
                 toReturn = new AsyncHttpRequest(currentContext, Constantes.URL_EXISTE+"?correo="+params[0]);
                 break;
-            case ACTION_INSERTAR:
-                toReturn = new AsyncHttpRequest(currentContext, Constantes.URL_INSERTAR+"?correo="+params[0]+"&pass="+params[1]);
+            case ACTION_REGISTRO:
+                toReturn = new AsyncHttpRequest(currentContext, Constantes.URL_INSERTAR+
+                        "?nombre="+params[0]+
+                        "&pass="+params[1]+
+                        "&apellidos="+params[2]+
+                        "&email="+params[3]
+                );
                 break;
         }
-
 
         return toReturn;
     }
@@ -76,7 +82,6 @@ public class AsyncHttpLauncher implements LoaderManager.LoaderCallbacks {
         switch (action) {
             case ACTION_LOGIN:
                 Toast.makeText(currentContext, "Finalizó", Toast.LENGTH_LONG).show();
-                Log.e("log: data", data.toString());
                 this.data = data;
                 if (data.toString().equals("[]")){
                     ((MainActivity) activityCaller).loginOK(false);
@@ -84,6 +89,16 @@ public class AsyncHttpLauncher implements LoaderManager.LoaderCallbacks {
                     ((MainActivity) activityCaller).loginOK(true);
                 }
                 break;
+            case ACTION_REGISTRO:
+                this.data = data;
+                Log.println(Log.ERROR,"Resutl PHP ", data.toString());
+                if (data.toString().equalsIgnoreCase("true")) {
+                    Toast.makeText(currentContext, "Usuario registrado", Toast.LENGTH_LONG).show();
+                    ((RegistroActivity) activityCaller).registroCorrecto();
+                } else {
+                    ((RegistroActivity) activityCaller).registroFallido();
+                }
+
         }
 
         this.isFinished = true;

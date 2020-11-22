@@ -75,8 +75,8 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Usuario o contraseña incorrecto", Toast.LENGTH_LONG).show();
         }}
 
-    private void registry(String[] value){
-        AsyncHttpLauncher task = new AsyncHttpLauncher(this, AsyncHttpLauncher.ACTION_INSERTAR, );
+    private void registry(){
+       startActivity(new Intent(this, RegistroActivity.class));
     }
 
 }

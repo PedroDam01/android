@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.RegistroActivity"
+    android:background="@color/colorPrimaryDark">
+
+    <EditText
+        android:id="@+id/nombreField"
+        android:layout_width="100pt"
+        android:layout_height="20pt"
+        android:background="@color/colorPrimary"
+        android:layout_marginTop="40pt"
+        android:layout_marginStart="40pt"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Nombre"
+        />
+
+    <EditText
+        android:id="@+id/apellidoField"
+        android:layout_width="100pt"
+        android:layout_height="20pt"
+        android:background="@color/colorPrimary"
+        android:layout_marginTop="20pt"
+        android:layout_marginStart="40pt"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="apellido" />
+
+    <EditText
+        android:id="@+id/userField"
+        android:layout_width="100pt"
+        android:layout_height="20pt"
+        android:background="@color/colorPrimary"
+        android:layout_marginTop="20pt"
+        android:layout_marginStart="40pt"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Usuario" />
+
+    <EditText
+        android:id="@+id/passField"
+        android:layout_width="100pt"
+        android:layout_height="20pt"
+        android:background="@color/colorPrimary"
+        android:layout_marginTop="20pt"
+        android:layout_marginStart="40pt"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:text="pass"/>
+
+    <Button
+        android:id="@+id/registroBtn"
+        android:layout_width="60pt"
+        android:layout_height="20pt"
+        android:layout_marginTop="30pt"
+        android:layout_marginLeft="60pt"
+        android:text="Registrarse" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>

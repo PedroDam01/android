@@ -21,7 +21,8 @@
         android:layout_height="20pt"
         android:background="@color/colorPrimary"
         android:layout_marginTop="30pt"
-        android:layout_marginStart="40pt"/>
+        android:layout_marginStart="40pt"
+        android:text="usuario"/>
 
     <EditText
         android:id="@+id/loginPassText"
@@ -30,7 +31,8 @@
         android:layout_height="20pt"
         android:background="@color/colorPrimary"
         android:layout_marginTop="20pt"
-        android:layout_marginStart="40pt"/>
+        android:layout_marginStart="40pt"
+        android:text="contraseña"/>
 
     <LinearLayout
         android:layout_width="match_parent"
