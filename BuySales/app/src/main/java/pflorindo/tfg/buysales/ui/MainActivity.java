@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import pflorindo.tfg.buysales.R;
@@ -18,12 +20,12 @@ import pflorindo.tfg.buysales.data.UsuarioConvert;
 import pflorindo.tfg.buysales.utils.AsyncHttpLauncher;
 
 public class MainActivity extends AppCompatActivity {
-
+    public static Usuario usu;
     private Button registryBtn = null;
     private Button loginBtn = null;
     private EditText mailText = null;
     private EditText passText = null;
-
+    AsyncHttpLauncher task ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         else if (passValue.trim().isEmpty())
             passText.setBackgroundColor(Color.MAGENTA);
         else {
-            AsyncHttpLauncher task = new AsyncHttpLauncher(this, AsyncHttpLauncher.ACTION_LOGIN, mailValue);
+             task = new AsyncHttpLauncher(this, AsyncHttpLauncher.ACTION_LOGIN, mailValue);
         }
     }
 
@@ -68,6 +70,10 @@ public class MainActivity extends AppCompatActivity {
             // TODO lanzar otra actividad
             startActivity(new Intent(this, MenuActivity.class));
             mailText.setBackgroundColor(Color.GREEN);
+            String value= (String) task.getFinishedData();
+            Gson gson=new Gson();
+            Usuario toreturn=gson.fromJson(value,Usuario.class);
+            usu=toreturn;
         } else {
             mailText.setBackgroundColor(Color.YELLOW);
             passText.setBackgroundColor(Color.YELLOW);

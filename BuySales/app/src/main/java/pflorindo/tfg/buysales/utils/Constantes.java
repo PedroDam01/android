@@ -17,13 +17,13 @@ public class Constantes {
 
     public static final String URL_EXISTE = URL_SERVIDOR + "existe.php";
 
-    public static final String URL_LISTA_CHAT = URL_SERVIDOR + "lista_chat.php";
 
-    public static final String URL_CONVERSACION = URL_SERVIDOR + "conversacion.php";
 
-    public static String URL_ENVIAR_MENSAJE;
 
-    public static String URL_BORRAR_CONVERSACION;
+    public static final String URL_MIS_ARTICULOS =URL_SERVIDOR+"mis_articulos.php";
 
+
+    public static final String URL_LISTAR_ARTICULOS = URL_SERVIDOR + "lista_articulos.php";
+    public static final String URL_LISTA_IMAGENES = URL_SERVIDOR + "lista_imagenes.php";
 }
 

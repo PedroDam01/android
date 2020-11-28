@@ -3,6 +3,7 @@ package pflorindo.tfg.buysales.ui;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -41,14 +42,31 @@ public class RegistroActivity extends AppCompatActivity {
     }
 
     private void registroClickado(){
+boolean bandera=true;
+       if (fieldNombre.getText().toString().isEmpty()){
+           fieldNombre.setBackgroundColor(Color.MAGENTA);
+           bandera=false;
+       }if (fieldApellido.getText().toString().isEmpty()){
+            fieldApellido.setBackgroundColor(Color.MAGENTA);
+            bandera=false;
 
-        //TODO verificar que los campos son correctos
+        }if (fieldPass.getText().toString().isEmpty()){
+            fieldPass.setBackgroundColor(Color.MAGENTA);
+            bandera=false;
 
+        }if (fieldUsuario.getText().toString().isEmpty()){
+            fieldUsuario.setBackgroundColor(Color.MAGENTA);
+            bandera=false;
+
+        }
+    if (bandera){
         new AsyncHttpLauncher(this, AsyncHttpLauncher.ACTION_REGISTRO,
                 fieldNombre.getText().toString(),
                 fieldPass.getText().toString(),
                 fieldApellido.getText().toString(),
                 fieldUsuario.getText().toString());
+    }else Toast.makeText(this,"Rellena todos los campos",Toast.LENGTH_LONG);
+
     }
 
     public void registroFallido(){
